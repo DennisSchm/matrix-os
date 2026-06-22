@@ -21,7 +21,7 @@ jobs:
     outputs:
       should_run: ${{ steps.changed.outputs.should_run }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -94,7 +94,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping typecheck."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
 
       - uses: oven-sh/setup-bun@v2
@@ -126,7 +126,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping pattern scan."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
         with:
           fetch-depth: 0
@@ -167,7 +167,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping React audit."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
         with:
           fetch-depth: 0
@@ -228,7 +228,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping sync-client checks."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
 
       - uses: pnpm/action-setup@v6
@@ -270,7 +270,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping unit shard."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
 
       - uses: oven-sh/setup-bun@v2
@@ -307,7 +307,7 @@ jobs:
         if: needs.changes.outputs.should_run != 'true'
         run: echo "No CI-relevant source changes detected; skipping e2e tests."
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: needs.changes.outputs.should_run == 'true'
 
       - uses: oven-sh/setup-bun@v2
